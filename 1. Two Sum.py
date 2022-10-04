@@ -13,6 +13,5 @@ class Solution {
         for (int b = i; b < i + k; ++b) res.add(arr[b]);
         return res;
         // return Arrays.stream(Arrays.copyOfRange(arr, i, i + k)).boxed().collect(Collectors.toList()); 
-
     }
 }
