@@ -1,17 +1,10 @@
-class Solution {
-    public List<Integer> findClosestElements(int[] arr, int k, int x) {
-        int i = 0, j = arr.length - k;
-        while (i < j){
-            int mid = (i & j) + ((i ^ j) >> 1);
-            // int mid = i + (j - i >> 1);
-            if(x - arr[mid] > arr[mid + k] - x)
-                i = mid + 1;
-            else
-                j = mid;
-        }
-        List<Integer> res = new ArrayList<>();
-        for (int b = i; b < i + k; ++b) res.add(arr[b]);
-        return res;
-        // return Arrays.stream(Arrays.copyOfRange(arr, i, i + k)).boxed().collect(Collectors.toList()); 
-    }
-}
+class Solution:
+    def twoSum(self, nums: List[int], target: int) -> List[int]:
+        num_idx_map = {}
+
+        for idx, num in enumerate(nums):
+            difference = target - num            
+            if difference in num_idx_map:                
+                return [num_idx_map[difference], idx]
+            else:
+                num_idx_map[num] = idx
